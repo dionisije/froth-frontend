@@ -1,0 +1,8 @@
+{
+    "files": {
+        "ignore": ["./src/styles/*bootstrap*"]
+    },
+    "rules": {
+        "indentation": [ 2, { "size": 4 } ]
+    }
+}

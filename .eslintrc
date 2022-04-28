@@ -1,0 +1,30 @@
+{
+  "env": { "node": true, "es6": true, "browser": true, "jest": true },
+  "extends": ["eslint:recommended", "react-app"],
+  "parser": "babel-eslint",
+  "plugins": [ "prettier", "react", "jest" ],
+  "rules": {
+    "camelcase": ["error", {"allow": []}],
+    "class-methods-use-this": 0,
+    "import/no-cycle": [ 2, { "maxDepth": 2 } ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true }],
+    "indent": [ "error", 4, { "SwitchCase": 1 } ],
+    "linebreak-style": "off",
+    "max-len": "off",
+    "no-multiple-empty-lines": 1,
+    "no-underscore-dangle": 0,
+    "no-unused-vars": [ 1, { "ignoreSiblings": true, "argsIgnorePattern": "res|next|^err" } ],
+    "object-curly-newline": [ "error", { "ObjectPattern": { "multiline": true } } ],
+    "operator-linebreak": [ "error", "after" ],
+    "prettier/prettier": "error",
+    "react/destructuring-assignment": "off",
+    "react/forbid-prop-types": ["error", { "forbid": [ "any" ] } ],
+    "react/jsx-filename-extension": [ 1, { "extensions": [ ".js", ".jsx" ] } ],
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-props-no-spreading": [ "error", { "custom": "ignore" } ],
+    "react/no-deprecated": "off", // Remove once React version is upgraded
+    "react/no-unused-state": "off",
+    "react/require-default-props": "off"
+  }
+}
+

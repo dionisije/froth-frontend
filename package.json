@@ -20,6 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "eslint && sass-lint",
+    "sass": "sass-lint",
     "coverage": "yarn test -- --coverage"
   },
   "eslintConfig": {
@@ -39,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "sass-lint": "^1.13.1"
   }
 }
