@@ -1,4 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/slate.bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import About from './routes/About/About';
 import Albums from './routes/Albums/Albums';
