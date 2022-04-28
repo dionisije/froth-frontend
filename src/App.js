@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link, Route, Routes } from 'react-router-dom';
-import About from './routes/about';
-import Albums from './routes/albums';
-import Facts from './routes/facts';
+import About from './routes/About/About';
+import Albums from './routes/Albums/Albums';
+import Facts from './routes/Facts/Facts';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
             </ul>
           </div>
         </nav>
+        <p>Albums text here just for testing</p>
       </div>
       <Routes>
         <Route path="/" element={<Albums />} />
