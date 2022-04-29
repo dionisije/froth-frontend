@@ -1,5 +1,5 @@
 import React from 'react';
-import AlbumList from '../../components/AlbumList';
+import AlbumList from '../../components/AlbumList/AlbumList';
 
 const Albums = () => (
     <main className="container">
