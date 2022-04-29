@@ -11,7 +11,7 @@ describe('Album list page', () => {
 
   it('renders album list headings', () => {
     render(<AlbumList />);
-    expect(screen.getAllByRole('list')).toHaveLength(3);
+    expect(screen.getAllByRole('heading')).toHaveLength(3);
   });
 
   it('renders a list', async () => {

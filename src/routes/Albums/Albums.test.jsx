@@ -3,6 +3,5 @@ import Albums from './Albums';
 
 xit('renders learn react link', () => {
   render(<Albums />);
-  const navElement = screen.getAllByText(/Albums/i);
-  expect(navElement).toBeInTheDocument();
+  expect(screen.getAllByRole('heading')).toBeInTheDocument();
 });
