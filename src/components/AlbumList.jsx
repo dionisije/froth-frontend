@@ -1,5 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import FrothDataService from '../services/froth';
+// import Thumbnail from '../images/record.svg';
+
+const imageUri = 'http://frothmusic.co.uk/frothmusic/images/covers/';
 
 const AlbumList = () => {
     const [originalTitles, setOriginalTitles] = useState([]);
@@ -24,33 +27,74 @@ const AlbumList = () => {
     };
 
     return (
-        <>
+        <div className='album py-5 bg-dark'>
             <p>List of albums here...</p>
             {originalTitles ? (
                 <>
                     <h3>Original series...</h3>
-                    <ol>
-                        {originalTitles.map(album => <li key={album._id}>{album.Name} ({album.Catalogue})</li>)}
-                    </ol>
+                    <div className='container'>
+                        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
+                            {originalTitles.map(album => (
+                                <div className='col' key={album._id}>
+                                    <div className='card shadow-sm'>
+                                        <img 
+                                            className='img-thumbnail'
+                                            src={`${imageUri}${album.Catalogue.toLowerCase()}.jpg`}
+                                            alt={album.Name}
+                                        />
+                                        <div className='card-body'>{album.Name}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </>
             ) : null}
+
             {classicTitles ? (
                 <>
                     <h3>Classic series...</h3>
-                    <ol>
-                        {classicTitles.map(album => <li key={album._id}>{album.Name} ({album.Catalogue})</li>)}
-                    </ol>
+                    <div className='container'>
+                        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
+                            {classicTitles.map(album => (
+                                <div className='col' key={album._id}>
+                                    <div className='card shadow-sm'>
+                                        <img 
+                                            className='img-thumbnail'
+                                            src={`${imageUri}${album.Catalogue.toLowerCase()}.jpg`}
+                                            alt={album.Name}
+                                        />
+                                        <div className='card-body'>{album.Name}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </>
             ) : null}
+
             {streamingTitles ? (
                 <>
                     <h3>Streaming series...</h3>
-                    <ol>
-                        {streamingTitles.map(album => <li key={album._id}>{album.Name} ({album.Catalogue})</li>)}
-                    </ol>
+                    <div className='container'>
+                        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
+                            {streamingTitles.map(album => (
+                                <div className='col' key={album._id}>
+                                    <div className='card shadow-sm'>
+                                        <img 
+                                            className='img-thumbnail'
+                                            src={`${imageUri}${album.Catalogue.toLowerCase()}.jpg`}
+                                            alt={album.Name}
+                                        />
+                                        <div className='card-body'>{album.Name}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </>
             ) : null}
-        </>
+        </div>
     );
 };
 

@@ -1,2 +1,2 @@
-const About = () => (<main className="container"><h3>About</h3></main>);
+const About = () => (<main className="container"><h2>About</h2></main>);
 export default About;
