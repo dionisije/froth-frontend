@@ -31,7 +31,7 @@ const AlbumList = () => {
                     <h3>Original series...</h3>
                     <div className='container'>
                         <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
-                            {originalTitles.map(album => (<Album {...album} />))}
+                            {originalTitles.map(album => (<Album {...album} key={album._id} />))}
                         </div>
                     </div>
                 </>
@@ -41,7 +41,7 @@ const AlbumList = () => {
                     <h3>Classic series...</h3>
                     <div className='container'>
                         <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
-                            {classicTitles.map(album => (<Album {...album} />))}
+                            {classicTitles.map(album => (<Album {...album} key={album._id} />))}
                         </div>
                     </div>
                 </>
@@ -51,7 +51,7 @@ const AlbumList = () => {
                     <h3>Streaming series...</h3>
                     <div className='container'>
                         <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
-                            {streamingTitles.map(album => (<Album {...album} />))}
+                            {streamingTitles.map(album => (<Album {...album} key={album._id} />))}
                         </div>
                     </div>
                 </>

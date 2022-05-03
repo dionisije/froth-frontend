@@ -1,9 +1,5 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/slate.bootstrap.min.css';
-import { Link, Route, Routes } from 'react-router-dom';
-import About from './routes/About/About';
-import Albums from './routes/Albums/Albums';
-import Facts from './routes/Facts/Facts';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -20,13 +16,8 @@ function App() {
         </nav>
         <p>Albums text here just for testing</p>
       </div>
-      <Routes>
-        <Route path="/" element={<Albums />} />
-        <Route path="albums" element={<Albums />} />
-        <Route path="facts" element={<Facts />} />
-        <Route path="about" element={<About />} />
-      </Routes>
-      </>
+      <Outlet />
+    </>
   );
 }
 
