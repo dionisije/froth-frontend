@@ -8,18 +8,16 @@ const Album = ({_id, Name, Catalogue}) => {
     const imgUrl = `${imageUri}${Catalogue.toLowerCase()}.jpg`;
 
     return (
-        <NavLink to={`/albums/${_id}`}>
-            <div className='col'>
-                <div className='card shadow-sm'>
-                    <img 
-                        className='img-thumbnail'
-                        src={imgUrl}
-                        alt={Name}
-                    />
-                    <div className='card-body'>{Name}</div>
-                </div>
+        <div className='col'>
+            <div className='card shadow-sm'>
+                <img 
+                    className='img-thumbnail'
+                    src={imgUrl}
+                    alt={Name}
+                />
+                <div className='card-body'>{Name}</div>
             </div>
-        </NavLink>
+        </div>
     );
 }
 

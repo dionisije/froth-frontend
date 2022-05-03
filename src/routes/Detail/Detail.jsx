@@ -6,7 +6,7 @@ const Detail = () => {
     console.log(params);
 
     return (
-        <main className='"container'>
+        <main className='container'>
             <h2>Detail</h2>
             <p>Album ID: {params.albumId}</p>
         </main>

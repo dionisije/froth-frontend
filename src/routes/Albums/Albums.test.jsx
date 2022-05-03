@@ -1,7 +1,23 @@
-import { render, screen } from '@testing-library/react';
-import Albums from './Albums';
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
+import AlbumList from './AlbumList';
 
-xit('renders learn react link', () => {
-  render(<Albums />);
-  expect(screen.getAllByRole('heading')).toBeInTheDocument();
+describe('Album list page', () => {
+  it('renders the album list page', () => {
+    render(<AlbumList />);
+    const textElement = screen.getByText(/List/i);
+    expect(textElement).toBeInTheDocument();
+  });
+
+  it('renders album list headings', () => {
+    render(<AlbumList />);
+    expect(screen.getAllByRole('heading')).toHaveLength(3);
+  });
+
+  it('renders a list', async () => {
+    render(<AlbumList />);
+    await waitFor(() => {
+      expect(screen.getByText(/Brassed Froth!/)).toBeInTheDocument();
+    });
+  });
 });
