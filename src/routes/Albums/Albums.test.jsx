@@ -1,23 +1,23 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import AlbumList from './AlbumList';
+import Albums from './Albums';
 
 describe('Album list page', () => {
   it('renders the album list page', () => {
-    render(<AlbumList />);
+    render(<Albums />);
     const textElement = screen.getByText(/List/i);
     expect(textElement).toBeInTheDocument();
   });
 
   it('renders album list headings', () => {
-    render(<AlbumList />);
-    expect(screen.getAllByRole('heading')).toHaveLength(3);
+    render(<Albums />);
+    expect(screen.getAllByRole('heading')).toHaveLength(4);
   });
 
   it('renders a list', async () => {
-    render(<AlbumList />);
+    render(<Albums />);
     await waitFor(() => {
-      expect(screen.getByText(/Brassed Froth!/)).toBeInTheDocument();
+      expect(screen.getByTestId('original')).toBeInTheDocument();
     });
   });
 });

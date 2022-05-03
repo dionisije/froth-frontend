@@ -1,5 +1,4 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 // import Thumbnail from '../images/record.svg';
 
 const imageUri = 'http://frothmusic.co.uk/frothmusic/images/covers/';

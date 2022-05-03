@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 
 const Detail = () => {
     let params  = useParams();
-    console.log(params);
 
     return (
         <main className='container'>

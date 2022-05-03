@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink, Outlet, useLocation} from 'react-router-dom';
+import {NavLink, Outlet} from 'react-router-dom';
 import FrothDataService from '../../services/froth';
 import Album from '../../components/Album/Album';
 
@@ -24,8 +24,6 @@ const Albums = () => {
             });
     };
     
-    let location = useLocation();
-
     return (
         <main className='container'>
             <h2>Albums</h2>
@@ -34,7 +32,7 @@ const Albums = () => {
                 {originalTitles ? (
                     <>
                         <h3>Original series...</h3>
-                        <div className='container'>
+                        <div className='container' data-testid="original">
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
                                 {originalTitles.map(album => (
                                     <NavLink to={`/albums/${album._id}`} key={album._id}>
