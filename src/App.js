@@ -1,5 +1,5 @@
 import './styles/slate.bootstrap.min.css';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -8,9 +8,9 @@ function App() {
         <nav className='navbar navbar-dark bg-dark navbar-expand'>
           <div className='collapse navbar-collapse'>
             <ul className='navbar-nav mr-auto'>
-              <li className='navbar-item'><Link to="/albums" className='nav-link'>Albums</Link></li>
-              <li className='navbar-item'><Link to="/facts" className='nav-link'>Facts</Link></li>
-              <li className='navbar-item'><Link to="/about" className='nav-link'>About</Link></li>
+              <li className='navbar-item'><NavLink to="/albums" className='nav-link'>Albums</NavLink></li>
+              <li className='navbar-item'><NavLink to="/facts" className='nav-link'>Facts</NavLink></li>
+              <li className='navbar-item'><NavLink to="/about" className='nav-link'>About</NavLink></li>
             </ul>
           </div>
         </nav>
