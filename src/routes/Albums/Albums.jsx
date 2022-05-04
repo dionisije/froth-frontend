@@ -35,7 +35,7 @@ const Albums = () => {
                         <div className='container' data-testid="original">
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
                                 {originalTitles.map(album => (
-                                    <NavLink to={`/albums/${album._id}`} key={album._id}>
+                                    <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
                                     </NavLink>
                                 ))}
@@ -49,7 +49,7 @@ const Albums = () => {
                         <div className='container'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
                                 {classicTitles.map(album => (
-                                    <NavLink to={`/albums/${album._id}`} key={album._id}>
+                                    <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
                                     </NavLink>
                                 ))}
@@ -63,7 +63,7 @@ const Albums = () => {
                         <div className='container'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
                                 {streamingTitles.map(album => (
-                                    <NavLink to={`/albums/${album._id}`} key={album._id}>
+                                    <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
                                     </NavLink>
                                 ))}
