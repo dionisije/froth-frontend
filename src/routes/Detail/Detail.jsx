@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import TrackTable from '../../components/TrackTable/TrackTable';
 import FrothDataService from '../../services/froth';
 
 
@@ -25,29 +26,28 @@ const Detail = () => {
     };
 
     return (
-        <main className='container col-xxl-8 px-4 py-5'>
+        <main className='container'>
             {albumTracks.length > 0 && (
-                <div className='row flex-lg-row-reverse align-items-center g-5 py-5'>
-                    <div className='row flex-lg-row-reverse align-items-center g-5 py-5'>
-                        <div className='col-10 col-sm-8 col-lg-6'>
-                            <h2>{albumTracks[0].Album}</h2>
-                            <h6>{albumTracks[0].Catalogue}</h6>
-                            <ol>
-                                {albumTracks.map(track => <li key={track._id}>{track.Artist} - {track.Name}</li>)}
-                            </ol>
-                        </div>
-                        <div className='col-lg-6'>
+                <>
+                    <div className='row align-items-center'>
+                        <div className='col-md mx-5 my-2'>
                             <img
                                 src={`${imageUrl}`}
-                                className='d-block mx-lg-auto img-fluid'
+                                className='d-block mx-md-auto img-fluid'
                                 alt={`Album cover for ${albumId}`}
-                                width={500}
-                                height={500}
+                                width={400}
+                                height={400}
                                 loading='lazy'
                             />
                         </div>
+                        <div className='col-md mx-5 my-2'>
+                            <h1>{albumTracks[0][0].Album}</h1>
+                        </div>
                     </div>
-                </div>
+                    <div className='row align-items-center mx-5 my-2'>
+                        <TrackTable data={albumTracks} />
+                    </div>
+                </>
             )}
         </main>
     );
