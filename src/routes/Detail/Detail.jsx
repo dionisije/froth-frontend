@@ -6,7 +6,12 @@ import FrothDataService from '../../services/froth';
 
 const Detail = () => {
     let { albumId }  = useParams();
-    let imageUrl = albumId ? `http://frothmusic.co.uk/frothmusic/images/covers/${albumId.toLowerCase()}.jpg` : '';
+    let imageUrl = './froth-frontend/public/logo512.png';
+    const regex = /^DVD((CD)|(RM))R?\d\d?$/;
+
+    if (albumId && regex.test(albumId)) {
+        imageUrl = `http://frothmusic.co.uk/frothmusic/images/covers/${albumId.toLowerCase()}.jpg`;
+    }
 
     const [albumTracks, setAlbumTracks] = useState([]);
 
@@ -26,7 +31,7 @@ const Detail = () => {
     };
 
     return (
-        <main className='container'>
+        <main className='container' data-testid='detail'>
             {albumTracks.length > 0 && (
                 <>
                     <div className='row align-items-center'>
