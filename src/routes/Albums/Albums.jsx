@@ -27,12 +27,12 @@ const Albums = () => {
     return (
         <main className='container'>
             <h2>Albums</h2>
-            <div className='album py-5 bg-dark'>
+            <div className='album bg-dark'>
                 {originalTitles ? (
                     <>
                         <h3>Original series...</h3>
                         <div className='container' data-testid="original">
-                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
+                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 pb-5 g-3'>
                                 {originalTitles.map(album => (
                                     <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
@@ -46,7 +46,7 @@ const Albums = () => {
                     <>
                         <h3>Classic series...</h3>
                         <div className='container'>
-                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
+                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 pb-5 g-3'>
                                 {classicTitles.map(album => (
                                     <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
@@ -60,7 +60,7 @@ const Albums = () => {
                     <>
                         <h3>Streaming series...</h3>
                         <div className='container'>
-                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-3'>
+                            <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 pb-5 g-3'>
                                 {streamingTitles.map(album => (
                                     <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
