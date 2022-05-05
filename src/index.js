@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Loading from './components/Loading/Loading';
 import App from './App';
-import About from './routes/About/About';
-import Facts from './routes/Facts/Facts';
-import Detail from './routes/Detail/Detail';
-import Albums from './routes/Albums/Albums';
+
+const Albums = lazy(() => import('./routes/Albums/Albums'));
+const Detail = lazy(() => import('./routes/Detail/Detail'));
+const Facts = lazy(() => import('./routes/Facts/Facts'));
+const About = lazy(() => import('./routes/About/About'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -13,10 +15,10 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="albums" element={<Albums />} />
-        <Route path="albums/:albumId" element={<Detail />} />
-        <Route path="facts" element={<Facts />} />
-        <Route path="about" element={<About />} />
+        <Route path="albums" element={<Suspense fallback={<Loading />}><Albums /></Suspense>} />
+        <Route path="albums/:albumId" element={<Suspense fallback={<Loading />}><Detail /></Suspense>} />
+        <Route path="facts" element={<Suspense fallback={<Loading />}><Facts /></Suspense>} />
+        <Route path="about" element={<Suspense fallback={<Loading />}><About /></Suspense>} />
         <Route path="*" element={<main><p>Error: no page found!</p></main>} />
       </Route>
     </Routes>
