@@ -28,7 +28,6 @@ const Albums = () => {
         <main className='container'>
             <h2>Albums</h2>
             <div className='album py-5 bg-dark'>
-                <p>List of albums here...</p>
                 {originalTitles ? (
                     <>
                         <h3>Original series...</h3>

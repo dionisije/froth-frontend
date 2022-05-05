@@ -14,7 +14,6 @@ function App() {
             </ul>
           </div>
         </nav>
-        <p>Albums text here just for testing</p>
       </div>
       <Outlet />
     </>

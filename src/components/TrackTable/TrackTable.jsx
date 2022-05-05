@@ -1,4 +1,5 @@
 import React from "react";
+import {secondsToTime} from "../../utilities/utils";
 
 const TrackTable = ({data}) => {
     const discCount = data[0][0]['Disc Count'];
@@ -23,7 +24,7 @@ const TrackTable = ({data}) => {
                                     <th scope="row" key={`${track._id}${index}#`}>{index + 1}</th>
                                     <td key={`${track._id}${index}Arti`}>{track.Artist}</td>
                                     <td key={`${track._id}${index}Name`}>{track.Name}</td>
-                                    <td key={`${track._id}${index}Time`}>{track.Time}</td>
+                                    <td key={`${track._id}${index}Time`}>{secondsToTime(track.Time)}</td>
                                 </tr>
                             )}
                         </tbody>

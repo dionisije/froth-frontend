@@ -25,7 +25,6 @@ const AlbumList = () => {
     
     return (
         <div className='album py-5 bg-dark'>
-            <p>List of albums here...</p>
             {originalTitles ? (
                 <>
                     <h3>Original series...</h3>
