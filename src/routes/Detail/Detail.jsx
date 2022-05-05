@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
+import TrackTable from '../../components/TrackTable/TrackTable';
 import FrothDataService from '../../services/froth';
 
 
 const Detail = () => {
     let { albumId }  = useParams();
-    let imageUrl = albumId ? `http://frothmusic.co.uk/frothmusic/images/covers/${albumId.toLowerCase()}.jpg` : '';
+    let imageUrl = './froth-frontend/public/logo512.png';
+    const regex = /^DVD((CD)|(RM))R?\d\d?$/;
+
+    if (albumId && regex.test(albumId)) {
+        imageUrl = `http://frothmusic.co.uk/frothmusic/images/covers/${albumId.toLowerCase()}.jpg`;
+    }
 
     const [albumTracks, setAlbumTracks] = useState([]);
 
@@ -16,6 +22,7 @@ const Detail = () => {
     const retrieveAlbumDetail = id => {
         FrothDataService.getAlbum(id)
         .then(response => {
+            console.log(response.data);
             setAlbumTracks(response.data);
         })
             .catch(err => {
@@ -24,28 +31,29 @@ const Detail = () => {
     };
 
     return (
-        <main className='container col-xxl-8 px-4 py-5'>
-            <div className='row flex-lg-row-reverse align-items-center g-5 py-5'>
-                <div className='row flex-lg-row-reverse align-items-center g-5 py-5'>
-                    <div className='col-10 col-sm-8 col-lg-6'>
-                        <h2>Detail</h2>
-                        <p>Album ID: {albumId}</p>
-                        <ol>
-                            {albumTracks.map(track => <li key={track}>{track}</li>)}
-                        </ol>
+        <main className='container' data-testid='detail'>
+            {albumTracks.length > 0 && (
+                <>
+                    <div className='row align-items-center'>
+                        <div className='col-md mx-5 my-2'>
+                            <img
+                                src={`${imageUrl}`}
+                                className='d-block mx-md-auto img-fluid'
+                                alt={`Album cover for ${albumId}`}
+                                width={400}
+                                height={400}
+                                loading='lazy'
+                            />
+                        </div>
+                        <div className='col-md mx-5 my-2'>
+                            <h1>{albumTracks[0][0].Album}</h1>
+                        </div>
                     </div>
-                    <div className='col-lg-6'>
-                        <img
-                            src={`${imageUrl}`}
-                            className='d-block mx-lg-auto img-fluid'
-                            alt={`Album cover for ${albumId}`}
-                            width={500}
-                            height={500}
-                            loading='lazy'
-                        />
+                    <div className='row align-items-center mx-5 my-2'>
+                        <TrackTable data={albumTracks} />
                     </div>
-                </div>
-            </div>
+                </>
+            )}
         </main>
     );
 };

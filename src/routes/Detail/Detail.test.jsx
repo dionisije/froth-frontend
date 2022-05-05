@@ -1,9 +1,7 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Detail from './Detail';
 
-it('renders learn react link', async () => {
+it('renders an album link', async () => {
   render(<Detail />);
-  await waitFor(() => {
-    expect(screen.getByText(/Detail/)).toBeInTheDocument();
-  })
+  expect(screen.getByTestId(/Detail/i)).toBeInTheDocument();
 });
