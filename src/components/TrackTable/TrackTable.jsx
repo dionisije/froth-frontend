@@ -1,5 +1,5 @@
 import React from "react";
-import {secondsToTime} from "../../utilities/utils";
+import {secondsToTime} from "../../utilities/utils.js";
 
 const TrackTable = ({data}) => {
     const discCount = data[0][0]['Disc Count'];
