@@ -20,7 +20,7 @@ const Albums = () => {
                 setStreamingTitles(response.data.streamingSeries);
             })
             .catch(err => {
-                console.error('FDS returned an error:', err);
+                console.error('FDS returned an error from Albums:', err);
             });
     };
     
