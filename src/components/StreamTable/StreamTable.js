@@ -20,7 +20,7 @@ const StreamTable = id => {
     }
 
     return (
-        <div className='container my-5'>
+        <div className='container my-5' data-testid={id.data}>
             <iframe
                 title={id.data}
                 style={{borderRadius: "12px"}}
@@ -29,7 +29,8 @@ const StreamTable = id => {
                 height="500"
                 frameBorder="0"
                 allowFullScreen=""
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            >
             </iframe>
         </div>
     );

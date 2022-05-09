@@ -19,25 +19,27 @@ const Detail = () => {
     const [albumTracks, setAlbumTracks] = useState([]);
 
     useEffect(() => {
-        retrieveAlbumDetail(albumId);
-    }, [albumId]);
+        const retrieveAlbumDetail = id => {
+            if (!isStreamingTitle) {
+                FrothDataService.getAlbum(id)
+                    .then(response => {
+                        setAlbumTracks(response.data);
+                    })
+                    .catch(err => {
+                        console.error('FDS returned an error from Detail:', err);
+                    });
+            } else {
+                setAlbumTracks([]);
+            }
+        };
 
-    const retrieveAlbumDetail = id => {
-        if (!isStreamingTitle) {
-            FrothDataService.getAlbum(id)
-                .then(response => {
-                    console.log(response.data);
-                    setAlbumTracks(response.data);
-                })
-                .catch(err => {
-                    console.error('FDS returned an error from Detail:', err);
-                });
-       }
-    };
+        retrieveAlbumDetail(albumId);
+    }, [albumId, isStreamingTitle]);
+
 
     return (
         <main className='container' data-testid='detail'>
-            {!isStreamingTitle && albumTracks.length > 0 ? (
+            {isStreamingTitle ? (
                 <>
                     <div className='row align-items-center'>
                         <div className='col-md mx-5 my-2'>
@@ -51,15 +53,34 @@ const Detail = () => {
                             />
                         </div>
                         <div className='col-md mx-5 my-2'>
-                            <h1>{albumTracks[0][0].Album}</h1>
+                            <h1>{albumId}</h1>
                         </div>
-                    </div>
-                    <div className='row align-items-center mx-5 my-2'>
-                        <TrackTable data={albumTracks} />
+                        <StreamTable data={albumId} />
                     </div>
                 </>
             ) : (
-                <StreamTable data={albumId} />
+                (albumTracks && albumTracks.length > 0) && (
+                    <>
+                        <div className='row align-items-center'>
+                            <div className='col-md mx-5 my-2'>
+                                <img
+                                    src={`${imageUrl}`}
+                                    className='d-block mx-md-auto img-fluid'
+                                    alt={`Album cover for ${albumId}`}
+                                    width={400}
+                                    height={400}
+                                    loading='lazy'
+                                />
+                            </div>
+                            <div className='col-md mx-5 my-2'>
+                                <h1>{albumTracks[0][0].Album}</h1>
+                            </div>
+                        </div>
+                        <div className='row align-items-center mx-5 my-2'>
+                            <TrackTable data={albumTracks} />
+                        </div>
+                    </>
+                )
             )}
         </main>
     );
