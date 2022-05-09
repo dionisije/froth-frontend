@@ -4,9 +4,9 @@ import FrothDataService from '../../services/froth';
 import Album from '../../components/Album/Album';
 
 const Albums = () => {
-    const [originalTitles, setOriginalTitles] = useState([]);
-    const [classicTitles, setClassicTitles] = useState([]);
     const [streamingTitles, setStreamingTitles] = useState([]);
+    const [classicTitles, setClassicTitles] = useState([]);
+    const [originalTitles, setOriginalTitles] = useState([]);
 
     useEffect(() => {
         retrieveAlbumTitles()
@@ -28,12 +28,12 @@ const Albums = () => {
         <main className='container'>
             <h2>Albums</h2>
             <div className='album bg-dark'>
-                {originalTitles ? (
+                {streamingTitles ? (
                     <>
-                        <h3>Original series...</h3>
-                        <div className='container' data-testid="original">
+                        <h3>Streaming series...</h3>
+                        <div className='container'>
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 pb-5 g-3'>
-                                {originalTitles.map(album => (
+                                {streamingTitles.map(album => (
                                     <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
                                     </NavLink>
@@ -56,12 +56,12 @@ const Albums = () => {
                         </div>
                     </>
                 ) : null}
-                {streamingTitles ? (
+                {originalTitles ? (
                     <>
-                        <h3>Streaming series...</h3>
-                        <div className='container'>
+                        <h3>Original series...</h3>
+                        <div className='container' data-testid="original">
                             <div className='row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 pb-5 g-3'>
-                                {streamingTitles.map(album => (
+                                {originalTitles.map(album => (
                                     <NavLink to={`/albums/${album.Catalogue}`} key={album._id}>
                                         <Album {...album} />
                                     </NavLink>
@@ -70,7 +70,6 @@ const Albums = () => {
                         </div>
                     </>
                 ) : null}
-
             </div>
             <Outlet />
         </main>

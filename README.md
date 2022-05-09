@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Getting Started with the Froth frontend App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created and bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  It is to be used in conjunction with the [Froth backend](https://github.com/dionisije/froth-backend) to create a MERN stack.
 
 ## Available Scripts
 
