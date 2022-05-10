@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import TrackTable from './TrackTable';
+import AlbumTable from './AlbumTable';
 
 const props = [
     [
@@ -17,7 +17,7 @@ const props = [
     ]
 ];
 
-render(<TrackTable data={props} />);
+render(<AlbumTable data={props} />);
 
 it('renders an album table', () => {
     expect(screen.queryAllByRole('row')).toHaveLength(2);

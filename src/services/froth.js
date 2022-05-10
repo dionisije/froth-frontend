@@ -8,6 +8,10 @@ class FrothDataService {
     getAlbum(id) {
         return http.get(`/tracks/${id}`);
     }
+
+    search(term){
+        return http.get(`/search/${term}`);
+    }
 };
 
 export default new FrothDataService();

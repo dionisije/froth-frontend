@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
-import TrackTable from '../../components/TrackTable/TrackTable';
+import DiscTable from '../../components/DiscTable/DiscTable';
 import StreamTable from '../../components/StreamTable/StreamTable';
 import FrothDataService from '../../services/froth';
 
@@ -77,7 +77,7 @@ const Detail = () => {
                             </div>
                         </div>
                         <div className='row align-items-center mx-5 my-2'>
-                            <TrackTable data={albumTracks} />
+                            <DiscTable data={albumTracks} />
                         </div>
                     </>
                 )
