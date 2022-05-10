@@ -2,7 +2,7 @@ import React from "react";
 
 const AlbumTable = ({data}) => (
     <>
-        <h5>Found in {data.length} albums...</h5>
+        <h5>Found in {data.length} album title{data.length > 1 ? 's' : ''}...</h5>
         <table className="table" key="table">
             <thead>
                 <tr key="header">

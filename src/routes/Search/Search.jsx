@@ -1,19 +1,25 @@
 import React, {useState} from 'react';
 import AlbumTable from '../../components/AlbumTable/AlbumTable';
+import ArtistTable from '../../components/ArtistTable/ArtistTable';
+import TrackTable from '../../components/TrackTable/TrackTable';
 import FrothDataService from '../../services/froth';
 
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    const [albums, setAlbums] = useState([]);
+    const [artists, setArtists] = useState([]);
+    const [tracks, setTracks] = useState([]);
 
     const onChangeSearchText = e => {
         setSearchTerm(e.target.value);
     }
+
     const searchForText = () => {
-        console.log(searchTerm);
-        FrothDataService.searchAlbum(searchTerm)
+        FrothDataService.search(searchTerm)
             .then(response => {
-                setSearchResults(response.data);
+                setAlbums(response.data.albumResults);
+                setArtists(response.data.artistResults);
+                setTracks(response.data.trackResults);
             })
             .catch(err => {
                 console.error('FDS returned an derror from Search:', err);
@@ -43,9 +49,19 @@ const Search = () => {
                     </button>
                 </div>
             </form>
-            {searchResults && searchResults.length > 0 ? (
+            {albums && albums.length > 0 ? (
                 <div className='my-2'>
-                    <AlbumTable data={searchResults} />
+                    <AlbumTable data={albums} />
+                </div>
+            ) : null}
+            {artists && artists.length > 0 ? (
+                <div className='my-2'>
+                    <ArtistTable data={artists} />
+                </div>
+            ) : (null)}
+            {tracks && tracks.length > 0 ? (
+                <div className='my-2'>
+                    <TrackTable data={tracks} />
                 </div>
             ) : (null)}
         </main>

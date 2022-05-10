@@ -9,7 +9,7 @@ class FrothDataService {
         return http.get(`/tracks/${id}`);
     }
 
-    searchAlbum(term){
+    search(term){
         return http.get(`/search/${term}`);
     }
 };
