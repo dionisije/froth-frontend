@@ -5,8 +5,8 @@ import Albums from './Albums';
 describe('Album list page', () => {
   it('renders the album list page', () => {
     render(<Albums />);
-    const textElement = screen.getByText(/List/i);
-    expect(textElement).toBeInTheDocument();
+    const textElement = screen.getAllByText(/series/i);
+    expect(textElement).toHaveLength(3);
   });
 
   it('renders album list headings', () => {
